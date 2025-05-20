@@ -1,7 +1,7 @@
 [
   {
-    "name": "Master Thesis",
-    "description": "Worked with Pugstorm and looked into improving and comparing different fluid simulation for their game Corekeeper.",
+    "name": "Fluid Simulations",
+    "description": "Worked with Pugstorm on my master thesis and looked into improving and comparing different fluid simulation for their game Corekeeper.",
     "image": "favicon.ico",
     "link": "logo.svg",
     "repo": "https://github.com/EdvinNordin/MasterThesis",
@@ -9,7 +9,7 @@
   },
   {
     "name": "WebFighting",
-    "description": "Game",
+    "description": "Web-based 3D-Multiplayer game in the works! Using ThreeJS for graphics and physics and SocketIO for network logic.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/WebFighting",
@@ -17,7 +17,7 @@
   },
   {
     "name": "TabsShare",
-    "description": "Tabs",
+    "description": "Simple guitar tabulature website made for me and my dad to share tabs. Made using the MERN-Stack.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/TabsShare",
@@ -25,7 +25,7 @@
   },
   {
     "name": "PokeChart",
-    "description": "Visualization",
+    "description": "Pokemon graph and visualization for a data visualization course, made with Python and its libraries: Bokeh and Pands.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/WebFightPokeChart",
@@ -33,7 +33,7 @@
   },
   {
     "name": "Corporate Combat",
-    "description": "AR Game",
+    "description": "AR multiplayer strategy game created in Unity with classmates for my bachelor project.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/CorporateCombat",
@@ -41,23 +41,23 @@
   },
   {
     "name": "Color me Home",
-    "description": "Game",
+    "description": "Find you way back home to the woods in this small puzzle game made in Unreal Engine, where you play as a chameleon with different abilities.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/ColorMeHome",
     "isHovering": false
   },
   {
-    "name": "Cloudy",
-    "description": "Cloud Representation",
+    "name": "Procedural Clouds",
+    "description": "Simple fun little school project that creates procedurally generated lofi clouds around a spinning earth.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/Cloudy",
     "isHovering": false
   },
   {
-    "name": "Monte-Carlo Raytracing",
-    "description": "Custom Raytracing Renderer",
+    "name": "Monte-Carlo Raytracer",
+    "description": "Custom raytracing renderer made from scratch using the Monte-Carlo raytracing techinque in C++.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/MC-Raytracing",
@@ -65,7 +65,7 @@
   },
   {
     "name": "Image Reproduction",
-    "description": "Images made out of images",
+    "description": "Reproduction of images using smaller images implemented in Matlab.",
     "image": "temp",
     "link": "temp.com",
     "repo": "https://github.com/EdvinNordin/ImageReproduction",
