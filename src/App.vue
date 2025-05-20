@@ -2,48 +2,106 @@
 export default {
   data() {
     return {
-      projects: [
-        {
-          name: "Project 1",
-          description: "Water"
-        },
-        {
-          name: "Project 2",
-          description: "Game"
-        },
-        {
-          name: "Project 3",
-          description: "Tabs"
-        }
-      ],
+      projects: []
     };
+  },
+  mounted() {
+    // Fetch the JSON file
+    fetch('/projects.json')
+      .then(response => response.json())
+      .then(data => {
+        this.projects = data;
+      })
+      .catch(error => {
+        console.error('Error loading the JSON file:', error);
+      });
   },
 
   methods: {
-    clicking(){
-      alert("You clicked on a project!");
+    hovering(project) {
+      project.isHovering = true;
+    },
+    stopHovering(project) {
+      project.isHovering = false;
     }
   }
 };
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full h-screen max-w-full">
-    <div class="text-center pb-10">
-      <h1 class="text-3xl font-bold underline">Edvin Nordin</h1>
+  <section class="hero">
+    <div class="hero-body container">
+      <h1 class="title is-1">Edvin Nordin</h1>
     </div>
-    <div class="flex flex-row justify-between w-full px-2 md:px-10">
-      <div
-        class="border text-center h-50 w-50"
-        @click="clicking"
-        v-for="project in projects"
-        :key="project.name"
-      >
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
+  </section>
+
+  <section class="section">
+    <div class="level horizontal-scroll">
+      <div v-for="project in projects" :key="project.name">
+
+        <div class="level-item box is-flex-direction-column " 
+        @mouseover="hovering(project)" 
+        @mouseleave="stopHovering(project)"
+        :href="project.link">
+
+          <p class="title customTitle" 
+          >
+          {{ project.name }}</p>
+
+          <img src="./water.png" class="image" :class="project.isHovering ? 'is-256x256' : 'is-128x128'"/>
+
+          <p class="custom-max-width customDescription">
+            {{ project.description }}</p>
+        
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="section container flex justify-content" >
+      <h2 class="title is-3">About Me</h2>
+    
+    </section>
 </template>
 
-<style></style>
+<style>
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}/*
+
+.custom-max-width {
+  width: 300px;
+  height: 300px;
+}*/
+
+.customTitle{
+  overflow-wrap: normal;
+  padding:15px;
+}
+
+.customDescription{
+  white-space: normal; /* Allows text to wrap to the next line */
+  padding:15px;
+}
+
+/*
+.small-size {
+  width: 250px;    
+  height: 250px;
+}
+
+.big-size {
+  width: 300px;      
+  height: 250px;     
+}*/
+</style>
+
+<!--<div v-if="project.name === 'Master Thesis'" class="level-left card">
+            <h3 class="title is-nowrap card-title">{{ project.name }}</h3>
+            <p class="subtitle card-content">{{ project.description }}</p>
+          </div>
+          <div v-else-if="project.name === 'Image Reproduction'" class="level-right card" >
+            <h3 class="title is-nowrap card-title">{{ project.name }}</h3>
+            <p class="subtitle card-content">{{ project.description }}</p>
+          </div>-->

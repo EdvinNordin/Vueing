@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Master Thesis",
+    "description": "Worked with Pugstorm and looked into improving and comparing different fluid simulation for their game Corekeeper.",
+    "image": "favicon.ico",
+    "link": "logo.svg",
+    "repo": "https://github.com/EdvinNordin/MasterThesis",
+    "isHovering": false
+  },
+  {
+    "name": "WebFighting",
+    "description": "Game",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/WebFighting",
+    "isHovering": false
+  },
+  {
+    "name": "TabsShare",
+    "description": "Tabs",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/TabsShare",
+    "isHovering": false
+  },
+  {
+    "name": "PokeChart",
+    "description": "Visualization",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/WebFightPokeChart",
+    "isHovering": false
+  },
+  {
+    "name": "Corporate Combat",
+    "description": "AR Game",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/CorporateCombat",
+    "isHovering": false
+  },
+  {
+    "name": "Color me Home",
+    "description": "Game",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/ColorMeHome",
+    "isHovering": false
+  },
+  {
+    "name": "Cloudy",
+    "description": "Cloud Representation",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/Cloudy",
+    "isHovering": false
+  },
+  {
+    "name": "Monte-Carlo Raytracing",
+    "description": "Custom Raytracing Renderer",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/MC-Raytracing",
+    "isHovering": false
+  },
+  {
+    "name": "Image Reproduction",
+    "description": "Images made out of images",
+    "image": "temp",
+    "link": "temp.com",
+    "repo": "https://github.com/EdvinNordin/ImageReproduction",
+    "isHovering": false
+  }
+]
