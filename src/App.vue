@@ -92,7 +92,7 @@ export default {
           <div class="is-justify-content-space-between">
             <p class="title is-5 customTitle">{{ project.name }}</p>
 
-            <img :src="project.image" :alt="project.name" class="image is-256x256"/>
+            <img :src="project.image" :alt="project.name" class="image is-256x256 projImage"/>
           </div>
           <p class="custom-max-width customDescription"> {{ project.description }}</p>
         
@@ -116,6 +116,11 @@ export default {
 <style>
 .imageMe{
   max-width: 600px;
+}
+
+.projImage{
+  width: 250px;
+  height: 180px;
 }
 
 .horizontal-scroll {

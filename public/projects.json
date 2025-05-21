@@ -42,7 +42,7 @@
   {
     "name": "Color me Home",
     "description": "Find you way back home to the woods in this small puzzle game made in Unreal Engine, where you play as a chameleon with different abilities.",
-    "image": "ColorMeHome.png",
+    "image": "color.png",
     "link": "https://youtu.be/a1JFtIN9Qpg",
     "repo": "https://github.com/EdvinNordin/ColorMeHome",
     "isHovering": false
