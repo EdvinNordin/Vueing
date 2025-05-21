@@ -2,7 +2,8 @@
 export default {
   data() {
     return {
-      projects: []
+      projects: [],
+      scrollForward: true
     };
   },
   mounted() {
@@ -15,55 +16,108 @@ export default {
       .catch(error => {
         console.error('Error loading the JSON file:', error);
       });
-  },
 
+    // Auto-scroll logic
+    this.startAutoScroll();
+  },
+  beforeUnmount() {
+    clearInterval(this.scrollInterval);
+  },
   methods: {
-    hovering(project) {
+    highlight(project) {
       project.isHovering = true;
     },
-    stopHovering(project) {
+    stopHighlight(project) {
       project.isHovering = false;
-    }
+    },
+    startAutoScroll() {
+      this.$nextTick(() => {
+        const container = document.querySelector('.level');
+        if (!container) return;
+        this.scrollInterval = setInterval(() => {
+          if(this.scrollForward ){
+          container.scrollBy({ left: 10, behavior: 'smooth' });
+          } else {
+          container.scrollBy({ left: -10, behavior: 'smooth' });
+          }
+          // Optional: Loop back to start
+          if (
+            container.scrollLeft + container.clientWidth >=
+            container.scrollWidth
+          ) {
+            this.scrollForward = false;
+          }
+          if (container.scrollLeft <= 0) {
+            this.scrollForward = true;
+          }
+        
+        }, 100); // Adjust speed by changing the interval
+      });
+    },
+    hovering() {
+      clearInterval(this.scrollInterval);
+      
+    },
+    stopHovering() {
+      this.scrollInterval = setTimeout(() => {
+        this.startAutoScroll();
+      }, 2000); // Adjust delay before resuming auto-scroll
+    },
   }
 };
 </script>
 
 <template>
-  <container class="container">
-  <section class="hero">
-    <div class="hero-body container">
+  <section class="">
+  <div class="is-flex is-align-items-center pl-4">
+    <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
+    <div class="is-flex is-flex-direction-column">
       <h1 class="title is-1">Edvin Nordin</h1>
+      <h1 class="subtitle is-1">Your next developer?</h1>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="section">
-    <div class="level horizontal-scroll">
+    <h2 class="title is-3 mt-20">Projects</h2>
+    <div class="level horizontal-scroll"
+    @mouseover="hovering" 
+    @mouseleave="stopHovering" >
       <div v-for="project in projects" :key="project.name">
+        <a :href="project.link" target="_blank" class="level-item">
+        <div class="box level-item is-flex-direction-column is-justify-content-flex-start customSize mb-4" 
+        @mouseover="highlight(project)" 
+        @mouseleave="stopHighlight(project)"
+        :class="project.isHovering ? 'has-background-light' : 'has-background-wight'">
+          <div class="is-justify-content-space-between">
+            <p class="title is-5 customTitle">{{ project.name }}</p>
 
-        <div class="level-item box is-flex-direction-column customSize" 
-        @mouseover="hovering(project)" 
-        @mouseleave="stopHovering(project)"
-        :href="project.link"
-        :class="project.isHovering ? 'has-background-dark' : 'has-background-light'">
-
-          <p class="title customTitle">{{ project.name }}</p>
-
-          <img src="./water.png" class="image"/>
-
+            <img :src="project.image" :alt="project.name" class="image is-256x256"/>
+          </div>
           <p class="custom-max-width customDescription"> {{ project.description }}</p>
         
         </div>
+      </a>
       </div>
     </div>
   </section>
   <section class="section container flex justify-content" >
       <h2 class="title is-3">About Me</h2>
+      <p class="subtitle">
+        Hello and welocome to my website! I am a 26 years old passionate software engineer located in Umeå that is always excited to learn new things! 
+        I am intersted in game creation, computer graphics, web building and visulization and have created several projects in these areas. 
+        I am currently looking for a job as a developer and am open to any opportunities that come my way. 
+        Check out some of my projects above if you are interested!
+      </p> 
     
     </section>
-    </container>
 </template>
 
 <style>
+.imageMe{
+  max-width: 600px;
+}
+
 .horizontal-scroll {
   overflow-x: auto;
   overflow-y: hidden;
@@ -72,17 +126,18 @@ export default {
 
 .customSize {
   width: 300px;
-  height: 500px;
+  height: 450px;
 }
 
 .customTitle{
   overflow-wrap: normal;
   padding:15px;
+  padding-top: 5px;
 }
 
 .customDescription{
   white-space: normal; /* Allows text to wrap to the next line */
-  padding:15px;
+  padding-top:15px;
 }
 
 /*
