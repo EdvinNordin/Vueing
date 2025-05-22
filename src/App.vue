@@ -69,18 +69,18 @@ export default {
 
 <template>
   <section class="has-background-white-ter">
-  <div class="is-flex is-align-items-center pl-4">
+  <div class="is-flex is-align-items-center pl-4 is-flex-direction-row is-flex-direction-column-mobile">
     <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
     <div class="is-flex is-flex-direction-column">
-      <h1 class="title is-1 has-text-dark">Edvin Nordin</h1>
-      <h1 class="subtitle is-1 ">Your next developer?</h1>
+      <h1 class="title is-1 has-text-dark customTitle">Edvin Nordin</h1>
+      <h1 class="subtitle is-1 customDescription">Your next developer?</h1>
     </div>
   </div>
 </section>
 
   <section class="section projSection has-background-white-ter">
     <h2 class="title is-3 mb-0 has-text-dark">Projects</h2>
-    <div class="level horizontal-scroll"
+    <div class="level horizontal-scroll is-mobile"
     @mouseover="hovering" @mouseleave="stopHovering" >
       <div v-for="project in projects" :key="project.name">
         <a :href="project.link" target="_blank">
@@ -147,9 +147,9 @@ a:hover {
   height: 450px;
 }
 
-.customTitle{
-  overflow-wrap: normal;
-  padding:15px;
+.customTitle {
+  white-space: nowrap;
+  padding-bottom: 15px;
   padding-top: 5px;
 }
 
