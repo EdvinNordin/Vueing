@@ -72,14 +72,14 @@ export default {
   <div class="is-flex is-align-items-center pl-4">
     <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
     <div class="is-flex is-flex-direction-column">
-      <h1 class="title is-1">Edvin Nordin</h1>
-      <h1 class="subtitle is-1">Your next developer?</h1>
+      <h1 class="title is-1 has-text-dark">Edvin Nordin</h1>
+      <h1 class="subtitle is-1 ">Your next developer?</h1>
     </div>
   </div>
 </section>
 
   <section class="section projSection has-background-white-ter">
-    <h2 class="title is-3 mb-0">Projects</h2>
+    <h2 class="title is-3 mb-0 has-text-dark">Projects</h2>
     <div class="level horizontal-scroll"
     @mouseover="hovering" @mouseleave="stopHovering" >
       <div v-for="project in projects" :key="project.name">
@@ -89,7 +89,7 @@ export default {
           :class="project.isHovering ? 'has-background-light' : 'has-background-white'">
             <div class="is-justify-content-flex-start">
               <div class="is-justify-content-space-between">
-                <p class="title is-5 customTitle">{{ project.name }}</p>
+                <p class="title is-5 customTitle has-text-dark">{{ project.name }}</p>
                 <img :src="project.image" :alt="project.name" class="image projImage"/>
               </div>
               <p class="custom-max-width customDescription">{{ project.description }}</p>
