@@ -68,7 +68,7 @@ export default {
 </script>
 
 <template>
-  <section class="">
+  <section class="has-background-white-ter">
   <div class="is-flex is-align-items-center pl-4">
     <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
     <div class="is-flex is-flex-direction-column">
@@ -78,16 +78,15 @@ export default {
   </div>
 </section>
 
-  <section class="section">
-    <h2 class="title is-3 mt-20">Projects</h2>
+  <section class="section projSection has-background-white-ter">
+    <h2 class="title is-3 mb-0">Projects</h2>
     <div class="level horizontal-scroll"
-    @mouseover="hovering" 
-    @mouseleave="stopHovering" >
+    @mouseover="hovering" @mouseleave="stopHovering" >
       <div v-for="project in projects" :key="project.name">
         <a :href="project.link" target="_blank">
-          <div class="box level-item is-flex-direction-column is-justify-content-space-between customSize" 
+          <div class="box level-item is-flex-direction-column is-justify-content-space-between customSize has-background-white" 
            @mouseover="highlight(project)" @mouseleave="stopHighlight(project)"
-          :class="project.isHovering ? 'has-background-light' : 'has-background-wight'">
+          :class="project.isHovering ? 'has-background-light' : 'has-background-white'">
             <div class="is-justify-content-flex-start">
               <div class="is-justify-content-space-between">
                 <p class="title is-5 customTitle">{{ project.name }}</p>
@@ -103,7 +102,7 @@ export default {
       </div>
     </div>
   </section>
-  <section class="section container flex justify-content" >
+  <section class="section container flex justify-content  has-background-white-ter" >
       <h2 class="title is-3">About Me</h2>
       <p class="subtitle">
         Hello and welocome to my website! I am a 26 years old passionate software engineer located in Umeå that is always excited to learn new things! 
@@ -113,9 +112,9 @@ export default {
       </p> 
     
     </section>
-    <section class="section">
-      <h3 class="title is-4">Contact Me</h3>
-      <p class="subtitle">This is text on how to contact me or stuff lmao and skibidi <-- Adam</p>
+    <section class="section has-background-dark">
+      <h3 class="title is-4 has-text-light">Contact Me</h3>
+      <p class="subtitle has-text-grey-lighter">This is text on how to contact me or stuff lmao and skibidi <-- Adam</p>
 
     </section>
 </template>
@@ -123,6 +122,10 @@ export default {
 <style>
 .imageMe{
   max-width: 600px;
+}
+
+.projSection{
+  padding-top: 100px;
 }
 
 .projImage{
@@ -134,6 +137,9 @@ export default {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+}
+a:hover {
+  background: none;
 }
 
 .customSize {

@@ -16,7 +16,7 @@
     "isHovering": false
   },
   {
-    "name": "TabsShare",
+    "name": "Tabs-Share",
     "description": "Simple guitar tabulature website made for me and my dad to share tabs. Made using the MERN-Stack.",
     "image": "/tab.png",
     "link": "https://tabs-share.onrender.com/",
