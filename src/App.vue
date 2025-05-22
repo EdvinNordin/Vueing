@@ -111,6 +111,11 @@ export default {
       </p> 
     
     </section>
+    <section class="section">
+      <h3 class="title is-4">Contact Me</h3>
+      <p class="subtitle">This is text on how to contact me or stuff lmao and skibidi <-- Adam</p>
+
+    </section>
 </template>
 
 <style>
