@@ -62,5 +62,13 @@
     "link": "temp.com",
     "repo": "https://github.com/JimmyCedervall/TNM097",
     "isHovering": false
+  },
+  {
+    "name": "Portfolio",
+    "description": "The page your on right now.",
+    "image": "EN.png",
+    "link": "edvinnordin.netlify.app",
+    "repo": "https://github.com/EdvinNordin/Vueing",
+    "isHovering": false
   }
 ]
