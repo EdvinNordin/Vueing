@@ -73,7 +73,7 @@ export default {
     <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
     <div class="is-flex is-flex-direction-column">
       <h1 class="title is-1 has-text-dark customTitle">Edvin Nordin</h1>
-      <h1 class="subtitle is-1 customDescription">Your next developer?</h1>
+      <h1 class="subtitle is-1 customDescription has-text-grey">Your next developer?</h1>
     </div>
   </div>
 </section>
@@ -92,7 +92,7 @@ export default {
                 <p class="title is-5 customTitle has-text-dark">{{ project.name }}</p>
                 <img :src="project.image" :alt="project.name" class="image projImage"/>
               </div>
-              <p class="custom-max-width customDescription">{{ project.description }}</p>
+              <p class="custom-max-width customDescription has-text-grey-dark">{{ project.description }}</p>
             </div>
             <a :href="project.github" target="_blank" class="">
               <img src="/github.png" class="image is-24x24 githubIcon" alt="Github icon"/>
@@ -103,8 +103,8 @@ export default {
     </div>
   </section>
   <section class="section container flex justify-content  has-background-white-ter" >
-      <h2 class="title is-3">About Me</h2>
-      <p class="subtitle">
+      <h2 class="title is-3 has-text-dark">About Me</h2>
+      <p class="subtitle has-text-grey">
         Hello and welocome to my website! I am a 26 years old passionate software engineer located in Umeå that is always excited to learn new things! 
         I am intersted in game creation, computer graphics, web building and visulization and have created several projects in these areas. 
         I am currently looking for a job as a developer and am open to any opportunities that come my way. 
