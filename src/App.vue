@@ -72,7 +72,7 @@ export default {
     <div class="is-flex is-flex-direction-column">
       <h1 class="title is-1 has-text-dark customTitle">Edvin Nordin</h1>
       <h1 class="subtitle is-1 customDescription has-text-grey">Your next developer?</h1>
-      <h1 class="subtitle is-1 customDescription has-text-dark">Site is currently under construction and is subject to change!</h1>
+      <h1 class="subtitle is-3 customDescription has-text-dark">Site is currently under construction and is subject to change!</h1>
     </div>
   </div>
 </section>
