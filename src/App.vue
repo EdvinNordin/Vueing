@@ -16,7 +16,6 @@ export default {
       .catch(error => {
         console.error('Error loading the JSON file:', error);
       });
-
     // Auto-scroll logic
     this.startAutoScroll();
   },
@@ -32,26 +31,25 @@ export default {
     },
     startAutoScroll() {
       this.$nextTick(() => {
+        // Only auto-scroll if not on mobile
+        if (window.innerWidth < 769) return;
         const container = document.querySelector('.level');
         if (!container) return;
         this.scrollInterval = setInterval(() => {
-          if(this.scrollForward ){
-          container.scrollBy({ left: 10, behavior: 'smooth' });
+          if (this.scrollForward) {
+            container.scrollBy({ left: 10, behavior: 'smooth' });
           } else {
-          container.scrollBy({ left: -10, behavior: 'smooth' });
+            container.scrollBy({ left: -10, behavior: 'smooth' });
           }
-          // Optional: Loop back to start
           if (
-            container.scrollLeft + container.clientWidth >=
-            container.scrollWidth
+            container.scrollLeft + container.clientWidth >= container.scrollWidth
           ) {
             this.scrollForward = false;
           }
           if (container.scrollLeft <= 0) {
             this.scrollForward = true;
           }
-        
-        }, 100); // Adjust speed by changing the interval
+        }, 50); // Adjust speed by changing the interval
       });
     },
     hovering() {
@@ -145,7 +143,7 @@ a:hover {
 }
 
 .customSize {
-  width: 300px;
+  width: 280px;
   height: 450px;
   margin-left: 5px;
   margin-right: 5px;
