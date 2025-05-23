@@ -69,11 +69,12 @@ export default {
 
 <template>
   <section class="has-background-white-ter">
-  <div class="is-flex is-align-items-center pl-4 is-flex-direction-row is-flex-direction-column-mobile">
-    <img src="/edvin.png" class="image imageMe" alt="Edvin Nordin"/>
+  <div class="is-flex is-align-items-center pl-4 is-flex-direction-row-desktop is-flex-direction-column-mobile">
+    <img src="/edvin.png" class="image imageMe is-hidden-mobile" alt="Edvin Nordin"/>
     <div class="is-flex is-flex-direction-column">
       <h1 class="title is-1 has-text-dark customTitle">Edvin Nordin</h1>
       <h1 class="subtitle is-1 customDescription has-text-grey">Your next developer?</h1>
+      <h1 class="subtitle is-1 customDescription has-text-dark">Site is currently under construction and is subject to change!</h1>
     </div>
   </div>
 </section>
@@ -138,6 +139,7 @@ export default {
   overflow-y: hidden;
   white-space: nowrap;
 }
+
 a:hover {
   background: none;
 }
@@ -145,10 +147,12 @@ a:hover {
 .customSize {
   width: 300px;
   height: 450px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .customTitle {
-  white-space: nowrap;
+  white-space: pre;
   padding-bottom: 15px;
   padding-top: 5px;
 }
@@ -163,23 +167,4 @@ a:hover {
     right:0;
 }
 
-/*
-.small-size {
-  width: 250px;    
-  height: 250px;
-}
-
-.big-size {
-  width: 300px;      
-  height: 250px;     
-}*/
 </style>
-
-<!--<div v-if="project.name === 'Master Thesis'" class="level-left card">
-            <h3 class="title is-nowrap card-title">{{ project.name }}</h3>
-            <p class="subtitle card-content">{{ project.description }}</p>
-          </div>
-          <div v-else-if="project.name === 'Image Reproduction'" class="level-right card" >
-            <h3 class="title is-nowrap card-title">{{ project.name }}</h3>
-            <p class="subtitle card-content">{{ project.description }}</p>
-          </div>-->
