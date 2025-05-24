@@ -1,121 +1,18 @@
-<script>
-export default {
-  data() {
-    return {
-      projects: [],
-      scrollForward: true
-    };
-  },
-  mounted() {
-    // Fetch the JSON file
-    fetch('/projects.json')
-      .then(response => response.json())
-      .then(data => {
-        this.projects = data;
-      })
-      .catch(error => {
-        console.error('Error loading the JSON file:', error);
-      });
-    // Auto-scroll logic
-    this.startAutoScroll();
-  },
-  beforeUnmount() {
-    clearInterval(this.scrollInterval);
-  },
-  methods: {
-    highlight(project) {
-      project.isHovering = true;
-    },
-    stopHighlight(project) {
-      project.isHovering = false;
-    },
-    startAutoScroll() {
-      this.$nextTick(() => {
-        // Only auto-scroll if not on mobile
-        if (window.innerWidth < 769) return;
-        const container = document.querySelector('.level');
-        if (!container) return;
-        this.scrollInterval = setInterval(() => {
-          if (this.scrollForward) {
-            container.scrollBy({ left: 10, behavior: 'smooth' });
-          } else {
-            container.scrollBy({ left: -10, behavior: 'smooth' });
-          }
-          if (
-            container.scrollLeft + container.clientWidth >= container.scrollWidth
-          ) {
-            this.scrollForward = false;
-          }
-          if (container.scrollLeft <= 0) {
-            this.scrollForward = true;
-          }
-        }, 50); // Adjust speed by changing the interval
-      });
-    },
-    hovering() {
-      clearInterval(this.scrollInterval);
-      
-    },
-    stopHovering() {
-      this.scrollInterval = setTimeout(() => {
-        this.startAutoScroll();
-      }, 2000); // Adjust delay before resuming auto-scroll
-    },
-  }
-};
+<script setup>
+import HeroSection from './components/HeroSection.vue';
+import ProjectsSection from './components/ProjectsSection.vue';
+import AboutSection from './components/AboutSection.vue';
+import ContactSection from './components/ContactSection.vue';
+
+
+
 </script>
-
 <template>
-  <section class="has-background-white-ter">
-  <div class="is-flex is-align-items-center pl-4 is-flex-direction-row-desktop is-flex-direction-column-mobile">
-    <img src="/edvin.png" class="image imageMe is-hidden-mobile" alt="Edvin Nordin"/>
-    <div class="is-flex is-flex-direction-column">
-      <h1 class="title is-1 has-text-dark customTitle">Edvin Nordin</h1>
-      <h1 class="subtitle is-1 customDescription has-text-grey">Your next developer?</h1>
-      <h1 class="subtitle is-3 customDescription has-text-dark">Site is currently under construction and is subject to change!</h1>
-    </div>
-  </div>
-</section>
+  <HeroSection />
+  <ProjectsSection />
+  <AboutSection />
+  <ContactSection />
 
-  <section class="section projSection has-background-white-ter">
-    <h2 class="title is-3 mb-0 has-text-dark">Projects</h2>
-    <div class="level horizontal-scroll is-mobile"
-    @mouseover="hovering" @mouseleave="stopHovering" >
-      <div v-for="project in projects" :key="project.name">
-        <a :href="project.link" target="_blank">
-          <div class="box level-item is-flex-direction-column is-justify-content-space-between customSize has-background-white" 
-           @mouseover="highlight(project)" @mouseleave="stopHighlight(project)"
-          :class="project.isHovering ? 'has-background-light' : 'has-background-white'">
-            <div class="is-justify-content-flex-start">
-              <div class="is-justify-content-space-between">
-                <p class="title is-5 customTitle has-text-dark">{{ project.name }}</p>
-                <img :src="project.image" :alt="project.name" class="image projImage"/>
-              </div>
-              <p class="custom-max-width customDescription has-text-grey-dark">{{ project.description }}</p>
-            </div>
-            <a :href="project.github" target="_blank" class="">
-              <img src="/github.png" class="image is-24x24 githubIcon" alt="Github icon"/>
-            </a>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-  <section class="section container flex justify-content  has-background-white-ter" >
-      <h2 class="title is-3 has-text-dark">About Me</h2>
-      <p class="subtitle has-text-grey">
-        Hello and welocome to my website! I am a 26 years old passionate software engineer located in Umeå that is always excited to learn new things! 
-        I am intersted in game creation, computer graphics, web building and visulization and have created several projects in these areas. 
-        I am currently looking for a job as a developer and am open to any opportunities that come my way. 
-        Check out some of my projects above if you are interested!
-      </p> 
-    
-    </section>
-    <section class="section has-background-dark">
-      <h3 class="title is-4 has-text-light">Contact Me</h3>
-      <p class="subtitle has-text-grey-lighter">This is text on how to contact me or stuff lmao and skibidi <-- Adam</p>
-
-    </section>
 </template>
 
 <style>
