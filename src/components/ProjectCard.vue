@@ -4,7 +4,7 @@ defineProps({
 });
 
 const formatName = (name) => {
-  return name.replace("_", " ");
+  return name.replaceAll("_", " ");
 };
 </script>
 
