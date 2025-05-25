@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute } from "vue-router";
 import { ref, onMounted, computed } from "vue";
-import ProjectInfo from "../components/ProjectInfo.vue";
+import ProjectInfo from "../components/InfoProject.vue";
 import ContactSection from "../components/ContactSection.vue";
 
 const route = useRoute();

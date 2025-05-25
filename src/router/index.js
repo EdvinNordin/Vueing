@@ -4,7 +4,7 @@ import ProjectView from "../views/ProjectView.vue";
 
 const routes = [
   { path: "/", name: "Home", component: HomeView },
-  { path: "/project/:name", name: "Project", component: ProjectView },
+  { path: "/:name", name: "Project", component: ProjectView },
 ];
 
 const router = createRouter({

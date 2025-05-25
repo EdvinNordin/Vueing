@@ -3,47 +3,50 @@ defineProps({
   project: Object,
 });
 
-function highlight(project) {
-  project.isHovering = true;
-}
-
-function stopHighlight(project) {
-  project.isHovering = false;
-}
+const formatName = (name) => {
+  return name.replace("_", " ");
+};
 </script>
+
 <template>
-  <router-link :to="`/project/${project.name}`">
-    <div
-      class="box p-4 level-item is-flex-direction-column is-justify-content-space-between customSize has-background-white"
-      @mouseover="highlight(project)"
-      @mouseleave="stopHighlight(project)"
-      :class="
-        project.isHovering ? 'has-background-light' : 'has-background-white'
-      "
-    >
-      <div class="is-justify-content-flex-start">
-        <div class="is-justify-content-space-between">
-          <p class="title is-5 customTitle has-text-dark">
-            {{ project.name }}
-          </p>
-          <img
-            :src="project.image"
-            :alt="project.name"
-            class="image projImage"
-          />
-        </div>
-        <p class="custom-max-width customDescription has-text-grey-dark">
-          {{ project.description }}
-        </p>
-      </div>
-      <a :href="project.github" target="_blank" class="">
-        <img
-          src="/github.png"
-          class="image is-24x24 githubIcon"
-          alt="Github icon"
-        />
-      </a>
+  <router-link :to="`/${project.name}`">
+    <div class="card">
+      <h2 class="projectName">
+        {{ formatName(project.name) }}
+      </h2>
+      <img :src="project.image" :alt="project.name" class="projectImage" />
     </div>
   </router-link>
 </template>
-<style></style>
+
+<style scoped lang="scss">
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+  overflow: hidden;
+}
+.card:hover {
+  background: #d3d3d3;
+}
+
+a:hover {
+  background: none;
+}
+
+.projectName {
+}
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+</style>

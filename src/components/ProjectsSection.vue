@@ -1,25 +1,25 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick} from 'vue';
-import ProjectCard from './ProjectCard.vue';
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+import ProjectCard from "./ProjectCard.vue";
 const projects = ref([]);
 const scrollForward = ref(true);
 let scrollInterval = null;
-
 
 function startAutoScroll() {
   nextTick(() => {
     // Only auto-scroll if not on mobile
     if (window.innerWidth < 769) return;
-    const container = document.querySelector('.level');
+    const container = document.querySelector(".horizontal");
     if (!container) return;
     scrollInterval = setInterval(() => {
       if (scrollForward.value) {
-        container.scrollBy({ left: 10, behavior: 'smooth' });
+        container.scrollBy({ left: 10, behavior: "smooth" });
       } else {
-        container.scrollBy({ left: -10, behavior: 'smooth' });
+        container.scrollBy({ left: -10, behavior: "smooth" });
       }
       if (
-        container.scrollLeft + container.clientWidth >= container.scrollWidth
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth
       ) {
         scrollForward.value = false;
       }
@@ -38,30 +38,37 @@ function stopHovering() {
   }, 2000); // Adjust delay before resuming auto-scroll
 }
 onMounted(() => {
-fetch('/projects.json')
-    .then(response => response.json())
-    .then(data => {
+  fetch("/projects.json")
+    .then((response) => response.json())
+    .then((data) => {
       projects.value = data;
     })
-    .catch(error => {
-      console.error('Error loading the JSON file:', error);
+    .catch((error) => {
+      console.error("Error loading the JSON file:", error);
     });
   startAutoScroll();
 });
-
 
 onBeforeUnmount(() => {
   clearInterval(scrollInterval);
 });
 </script>
+
 <template>
-    <section class="section projSection has-background-white-ter">
-    <h2 class="title is-3 mb-0 has-text-dark">Projects</h2>
-    <div class="level horizontal-scroll is-mobile"
-    @mouseover="hovering" @mouseleave="stopHovering" >
-      <div v-for="project in projects" :key="project.name">
-        <ProjectCard :project="project"/>
-      </div>
+  <h2 class="title">Projects</h2>
+  <div class="horizontal" @mouseover="hovering" @mouseleave="stopHovering">
+    <div v-for="project in projects" :key="project.name">
+      <ProjectCard :project="project" />
     </div>
-  </section>
+  </div>
 </template>
+
+<style scoped lang="scss">
+.horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+</style>

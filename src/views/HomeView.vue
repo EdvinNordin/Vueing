@@ -11,50 +11,18 @@ import ContactSection from "../components/ContactSection.vue";
   <ContactSection />
 </template>
 
-<style>
-.imageMe {
-  max-width: 600px;
+<style lang="scss">
+@use "../styles/variables.scss" as *;
+
+.title {
+  color: $titleColor;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.projSection {
-  padding-top: 100px;
-}
-
-.projImage {
-  width: 250px;
-  height: 180px;
-}
-
-.horizontal-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-
-a:hover {
-  background: none;
-}
-
-.customSize {
-  width: 280px;
-  height: 450px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.customTitle {
-  white-space: pre;
-  padding-bottom: 15px;
-  padding-top: 5px;
-}
-
-.customDescription {
-  white-space: normal; /* Allows text to wrap to the next line */
-  padding-top: 15px;
-}
-
-.githubIcon {
-  bottom: 0;
-  right: 0;
+.subtitle {
+  color: $titleColor;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 </style>
