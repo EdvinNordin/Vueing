@@ -16,13 +16,16 @@ import ContactSection from "../components/ContactSection.vue";
 
 .title {
   color: $titleColor;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  padding-bottom: 10px;
 }
 
 .subtitle {
   color: $titleColor;
-  font-size: 1.2rem;
-  line-height: 1.5;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
 }
 </style>

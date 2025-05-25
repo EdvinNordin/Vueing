@@ -13,8 +13,10 @@
 }
 .reversedTitle {
   color: $backgroundColor;
+  padding: 20px;
 }
 .reversedSubtitle {
   color: $backgroundColor;
+  padding: 20px;
 }
 </style>

@@ -9,13 +9,11 @@ const formatName = (name) => {
 </script>
 
 <template>
-  <router-link :to="`/${project.name}`">
-    <div class="card">
-      <h2 class="projectName">
-        {{ formatName(project.name) }}
-      </h2>
-      <img :src="project.image" :alt="project.name" class="projectImage" />
-    </div>
+  <router-link class="card" :to="`/${project.name}`">
+    <h2 class="projectName">
+      {{ formatName(project.name) }}
+    </h2>
+    <img :src="project.image" :alt="project.name" class="projectImage" />
   </router-link>
 </template>
 
@@ -39,6 +37,7 @@ const formatName = (name) => {
 
 a:hover {
   background: none;
+  height: 300px;
 }
 
 .projectName {
