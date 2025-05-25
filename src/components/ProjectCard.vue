@@ -3,9 +3,9 @@ defineProps({
   project: Object,
 });
 
-const formatName = (name) => {
+function formatName(name) {
   return name.replaceAll("_", " ");
-};
+}
 </script>
 
 <template>

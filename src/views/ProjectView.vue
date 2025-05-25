@@ -23,9 +23,18 @@ onMounted(async () => {
 </script>
 <template>
   <RouterLink to="/">
-    <h1 class="title is-3 mb-0 has-text-dark">Back to Home</h1>
+    <h1 class="back">Back to Home</h1>
   </RouterLink>
   <ProjectInfo :project="project" v-if="!loading" />
 
   <ContactSection />
 </template>
+<style scoped lang="scss">
+.back {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+</style>
